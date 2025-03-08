@@ -46,8 +46,21 @@ export default function ContactPage() {
   });
 
   const onSubmit = (data: ContactForm) => {
-    // In a real application, this would send an email to FinovateXone@outlook.com
-    console.log('Sending email to FinovateXone@outlook.com', data);
+    // Send email to both addresses
+    const emailContent = `
+      Name: ${data.name}
+      Email: ${data.email}
+      Subject: ${data.subject}
+      Message: ${data.message}
+    `;
+
+    // Send to both email addresses
+    const emails = ['FinovateXone@outlook.com', 'finovatexone24@gmail.com'];
+
+    emails.forEach(email => {
+      window.location.href = `mailto:${email}?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(emailContent)}`;
+    });
+
     setSubmitted(true);
   };
 

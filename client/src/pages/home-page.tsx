@@ -13,7 +13,7 @@ export default function HomePage() {
           <CardHeader className="flex flex-row items-center justify-between">
             <CardTitle className="flex items-center gap-2">
               <Shield className="h-6 w-6 text-primary" />
-              Welcome {user?.username}
+              Welcome to ByteSafe, {user?.username}
             </CardTitle>
             <Button
               variant="outline"

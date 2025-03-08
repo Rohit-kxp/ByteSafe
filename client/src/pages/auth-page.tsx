@@ -77,12 +77,15 @@ export default function AuthPage() {
           <CardHeader className="p-0">
             <CardTitle className="text-2xl font-bold flex items-center gap-2">
               <Shield className="h-6 w-6 text-primary" />
-              Secure Authentication
+              ByteSafe Authentication
             </CardTitle>
+            <p className="text-sm text-muted-foreground mt-2">
+              Secure your digital presence with advanced multi-factor authentication
+            </p>
           </CardHeader>
-          
+
           <div className="prose prose-sm">
-            <h3>Advanced Security Features</h3>
+            <h3>ByteSafe Security Features</h3>
             <ul>
               <li>Multi-factor authentication</li>
               <li>Biometric verification</li>

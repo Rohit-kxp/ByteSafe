@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { LogOut, Shield, MapPin, Smartphone, Key, Clock } from "lucide-react";
 import { motion } from "framer-motion";
+import { Logo } from "@/components/ui/logo";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -37,18 +38,13 @@ export default function HomePage() {
         <motion.div variants={itemVariants}>
           <Card className="backdrop-blur-lg bg-white/90">
             <CardHeader className="flex flex-row items-center justify-between">
-              <CardTitle className="flex items-center gap-2">
-                <Shield className="h-8 w-8 text-purple-600" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-500">
-                  Welcome to ByteSafe, {user?.username}
-                </span>
-              </CardTitle>
+              <Logo />
               <Button
                 variant="outline"
                 size="sm"
                 onClick={() => logoutMutation.mutate()}
                 disabled={logoutMutation.isPending}
-                className="border-2"
+                className="border-2 hover:scale-105 transition-transform"
               >
                 <LogOut className="h-4 w-4 mr-2" />
                 Logout

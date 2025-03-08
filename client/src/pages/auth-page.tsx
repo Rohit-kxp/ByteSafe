@@ -11,6 +11,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Shield, UserPlus, User, Fingerprint, Key, MapPin, Hand, Camera } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Logo } from "@/components/ui/logo";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -90,13 +91,7 @@ export default function AuthPage() {
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: 0.2 }}
               >
-                <CardTitle className="text-3xl font-bold flex items-center gap-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-500">
-                  <Shield className="h-8 w-8 text-purple-600" />
-                  ByteSafe
-                </CardTitle>
-                <p className="text-lg text-gray-600 mt-2">
-                  Next-Generation Secure Authentication
-                </p>
+                <Logo />
               </motion.div>
             </CardHeader>
 

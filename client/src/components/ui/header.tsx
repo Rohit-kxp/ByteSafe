@@ -1,10 +1,11 @@
-import { User, HelpCircle, MessageSquare } from "lucide-react";
+import { User, HelpCircle, MessageSquare, Key } from "lucide-react";
 import { motion } from "framer-motion";
 import { Logo } from "./logo";
 import { Link } from "wouter";
 
 const navItems = [
   { icon: User, label: "Profile", href: "/profile" },
+  { icon: Key, label: "Key Generator", href: "/key-generator" },
   { icon: HelpCircle, label: "Help", href: "/help" },
   { icon: MessageSquare, label: "Contact Us", href: "/contact" },
 ];

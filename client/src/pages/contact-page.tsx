@@ -46,7 +46,8 @@ export default function ContactPage() {
   });
 
   const onSubmit = (data: ContactForm) => {
-    console.log(data);
+    // In a real application, this would send an email to FinovateXone@outlook.com
+    console.log('Sending email to FinovateXone@outlook.com', data);
     setSubmitted(true);
   };
 

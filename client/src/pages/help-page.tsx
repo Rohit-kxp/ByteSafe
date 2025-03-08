@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Shield, Key, Fingerprint, Hand, HelpCircle, Lock } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { Chatbot } from "@/components/ui/chatbot";
 
 const containerVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -46,6 +47,7 @@ export default function HelpPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-600 via-blue-500 to-cyan-400">
       <Header />
+      <Chatbot />
       <div className="pt-24 p-8">
         <motion.div
           className="max-w-4xl mx-auto"
@@ -105,7 +107,7 @@ export default function HelpPage() {
                       </div>
                       <p className="mt-2 text-sm text-gray-600">
                         Our security experts are available 24/7 to assist you with any questions or concerns.
-                        Visit our contact page to get in touch.
+                        Contact us at FinovateXone@outlook.com for dedicated support.
                       </p>
                     </CardContent>
                   </Card>

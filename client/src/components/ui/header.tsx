@@ -12,11 +12,21 @@ const navItems = [
 export function Header() {
   return (
     <motion.header 
-      className="w-full py-4 px-8 flex justify-between items-center bg-white/95 backdrop-blur-sm fixed top-0 z-50 shadow-sm"
+      className="w-full py-2 px-8 flex justify-between items-center bg-white/95 backdrop-blur-sm fixed top-0 z-50 shadow-sm"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
     >
+      <Link href="/">
+        <motion.div
+          className="cursor-pointer"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+        >
+          <Logo />
+        </motion.div>
+      </Link>
+
       <nav>
         <ul className="flex gap-6">
           {navItems.map((item) => (
@@ -35,10 +45,6 @@ export function Header() {
           ))}
         </ul>
       </nav>
-      
-      <div className="flex-shrink-0">
-        <Logo />
-      </div>
     </motion.header>
   );
 }

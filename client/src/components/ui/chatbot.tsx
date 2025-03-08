@@ -22,7 +22,7 @@ export function Chatbot() {
   ]);
   const [input, setInput] = useState("");
 
-  const handleSend = () => {
+  const handleSend = async () => {
     if (!input.trim()) return;
 
     const newMessages = [
@@ -30,22 +30,57 @@ export function Chatbot() {
       { text: input, isUser: true }
     ];
 
-    // Simple response logic
-    const lowercaseInput = input.toLowerCase();
-    let response = defaultResponses.default;
-    for (const [key, value] of Object.entries(defaultResponses)) {
-      if (lowercaseInput.includes(key)) {
-        response = value;
-        break;
-      }
-    }
-
-    setTimeout(() => {
-      setMessages([...newMessages, { text: response, isUser: false }]);
-    }, 500);
-
-    setInput("");
     setMessages(newMessages);
+    setInput("");
+
+    try {
+      // Send message to Rasa API
+      const response = await fetch('http://localhost:5005/webhooks/rest/webhook', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          sender: "user",
+          message: input
+        })
+      });
+
+      const data = await response.json();
+
+      // If Rasa API fails, use default responses
+      if (!data || data.length === 0) {
+        const lowercaseInput = input.toLowerCase();
+        let response = defaultResponses.default;
+        for (const [key, value] of Object.entries(defaultResponses)) {
+          if (lowercaseInput.includes(key)) {
+            response = value;
+            break;
+          }
+        }
+        setTimeout(() => {
+          setMessages([...newMessages, { text: response, isUser: false }]);
+        }, 500);
+      } else {
+        // Use Rasa response
+        setTimeout(() => {
+          setMessages([...newMessages, { text: data[0].text, isUser: false }]);
+        }, 500);
+      }
+    } catch (error) {
+      // Fallback to default responses if API fails
+      const lowercaseInput = input.toLowerCase();
+      let response = defaultResponses.default;
+      for (const [key, value] of Object.entries(defaultResponses)) {
+        if (lowercaseInput.includes(key)) {
+          response = value;
+          break;
+        }
+      }
+      setTimeout(() => {
+        setMessages([...newMessages, { text: response, isUser: false }]);
+      }, 500);
+    }
   };
 
   return (

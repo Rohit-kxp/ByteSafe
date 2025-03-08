@@ -205,7 +205,11 @@ export default function ContactPage() {
                       </div>
                       <div className="flex items-center gap-2">
                         <Mail className="h-4 w-4 text-blue-600" />
-                        <span className="text-sm">emergency@bytesafe.com</span>
+                        <span className="text-sm">FinovateXone@outlook.com</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Mail className="h-4 w-4 text-blue-600" />
+                        <span className="text-sm">finovatexone24@gmail.com</span>
                       </div>
                     </div>
                   </CardContent>
